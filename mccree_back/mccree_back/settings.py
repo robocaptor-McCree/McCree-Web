@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # apps
+    'question'
 ]
 
 MIDDLEWARE = [
@@ -83,9 +85,9 @@ WSGI_APPLICATION = 'mccree_back.wsgi.application'
 DATABASES = { 
 	'default': { 
     	'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'McCree', 
+        'NAME': 'mccree', 
         'USER': 'root', 
-        'PASSWORD': 'mccree123', 
+        'PASSWORD': '!zxcv9930', 
         'HOST': 'localhost', 
         'PORT': '3306', 
      } 
