@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,10 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders', # CORS 관련 추가
     # rest-framework
     'rest_framework',
     # apps
     'question'
+    
 ]
 
 MIDDLEWARE = [
@@ -51,6 +54,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware', # CORS 관련 추가
+
 ]
 
 ROOT_URLCONF = 'mccree_back.urls'
@@ -139,3 +144,19 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+# 각 media 파일에 대한 URL Prefix
+MEDIA_URL = '/photo/' # 항상 / 로 끝나도록 설정
+# MEDIA_URL = 'http://static.myservice.com/media/' 다른 서버로 media 파일 복사시
+
+# 업로드된 파일을 저장할 디렉토리 경로
+MEDIA_ROOT = os.path.join(BASE_DIR, 'photo')
+
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOW_CREDENTIALS = True
+
+

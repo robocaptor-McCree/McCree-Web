@@ -1,25 +1,45 @@
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import photoAPI from './api/photoAPI';
+import {Button, Progress} from 'semantic-ui-react'
+import imgA from './images/001.png';
+
+
+
+
+
 
 function App() {
+
+
+
+  const [question_photo, setQuestion_photo] = useState([])
+
+  useEffect(() => {
+    photoAPI.getQuestion(1)
+      .then(res => {
+        setSwiperList(res.data.photo)
+        console.log(res.data.photo)
+      })
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <div>
+      <p>아래 사진이 뭔가욤?</p>
+    <div>
+  <img
+    src={ swiperList }
+    width='400'
+    height='300'
+    alt='testA' />
+  </div>
+  <Button primary> 곰 </Button>
+  <Button primary> 고양이 </Button>
+  <Button primary> 강아지 </Button>
+  <Button primary> 고래 </Button>
+  </div>
+    );
+  }
 
 export default App;
