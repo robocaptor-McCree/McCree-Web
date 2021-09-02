@@ -14,12 +14,12 @@ function App() {
 
 
 
-  const [question_photo, setQuestion_photo] = useState([])
+  const [questionPhoto, setQuestionPhoto ] = useState([])
 
   useEffect(() => {
     photoAPI.getQuestion(1)
       .then(res => {
-        setSwiperList(res.data.photo)
+        setQuestionPhoto(res.data.photo)
         console.log(res.data.photo)
       })
   }, [])
@@ -29,7 +29,7 @@ function App() {
       <p>아래 사진이 뭔가욤?</p>
     <div>
   <img
-    src={ swiperList }
+    src={ questionPhoto }
     width='400'
     height='300'
     alt='testA' />
