@@ -1,47 +1,75 @@
-import React, { useState, useEffect } from 'react';
-import logo from '../logo.svg';
-import '../App.css';
-import photoAPI from '../api/photoAPI';
-import {Button, Progress} from 'semantic-ui-react'
-import imgA from '../images/001.png';
+import React, {useState} from 'react';
+import logo from './logo.svg';
+import './App.css';
+import {Button, Container, Progress} from 'semantic-ui-react';
 
 
+import styled from "styled-components";
+import Modal from "./components/Modal";
+
+function App(props) {
+
+    const {} = props;
+    const [modal, handleModal] = useState(false)
 
 
+    return (
+        <LoginBody>
+            <Container>
+                <div>
+                    <h2>Login</h2>
+                    <div>
+                        <ID htmlFor='input_id'>ID : </ID>
+                        <input type='text' name='input_id'/>
+                    </div>
 
+                    <br/>
 
-function App() {
+                    <div>
+                        <PW htmlFor='input_pw'>PW : </PW>
+                        <input type='password' name='input_pw'/>
+                    </div>
+                </div>
 
+                <br/>
 
+                <Button
+                    onClick={() => {
+                        handleModal(true);
+                    }}
+                >
+                    로그인 하기
+                </Button>
+                {modal && <Modal onClose={handleModal}/>}
 
-  const [questionPhoto, setQuestionPhoto ] = useState([])
-
-  useEffect(() => {
-    photoAPI.getQuestion(1)
-      .then(res => {
-        setQuestionPhoto(res.data.photo)
-        console.log(res.data.photo)
-      })
-  }, [])
-
-  return (
-
-
-  //   <div>
-  //     <p>아래 사진이 뭔가욤?</p>
-  //   <div>
-  // <img
-  //   src={ questionPhoto }
-  //   width='400'
-  //   height='300'
-  //   alt='testA' />
-  // </div>
-  // <Button primary> 곰 </Button>
-  // <Button primary> 고양이 </Button>
-  // <Button primary> 강아지 </Button>
-  // <Button primary> 고래 </Button>
-  // </div>
+            </Container>
+        </LoginBody>
     );
-  }
 
+}
+
+const ID = styled.label`
+    width : 30px;
+    text-align : left;
+    display: inline-block;
+`;
+
+
+const PW = styled.label`
+    width : 30px;
+    text-align : left;
+    display: inline-block;
+`;
+
+const LoginBody = styled.div`
+    height: 100%;
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 5%; 
+    padding-top: 10%;
+    bordor: solid;
+    
+    
+`;
 export default App;
+

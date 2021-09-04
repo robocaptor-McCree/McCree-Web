@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+
 import styled from "styled-components";
-import {Container} from "semantic-ui-react";
+import photoAPI from "../api/photoAPI";
+
+import {Button} from 'semantic-ui-react';
+
 
 
 function Modal(props) {
     const { onClose } = props;
+
+    const [questionPhoto, setQuestionPhoto ] = useState([])
+
+    useEffect(() => {
+        photoAPI.getQuestion(1)
+            .then(res => {
+                setQuestionPhoto(res.data.photo)
+                console.log(res.data.photo)
+            })
+    }, [])
 
     return (
         <Container
@@ -13,20 +27,49 @@ function Modal(props) {
             }}
             >
 
-            팝업창
+            <div>
+                <H>아래 사진에 해당하는 정답 버튼을 눌러주세요 !</H>
+                <QuestionImg>
+                <img
+                        src={ questionPhoto }
+                        width='400'
+                        height='300'
+                        alt='' />
+                </QuestionImg>
+                <Example>
+                    <Button primary> 곰 </Button>
+                    <Button primary> 고양이 </Button>
+                    <Button primary> 강아지 </Button>
+                    <Button primary> 고래 </Button>
+                </Example>
+            </div>
         </Container>
     );
 }
 
 const Container = styled.div`
     position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    left: 20%;
+    right: 20%;
+    top: 10%;
+    bottom: 20%;
     z-index: 100;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.9);
 
+`;
+
+
+const H = styled.h1`
+    text-align: center; 
+    color: white;
+`;
+
+const QuestionImg = styled.div`
+    text-align: center;
+`;
+
+const Example = styled.div`
+    text-align: center;
 `;
 
 export default Modal;
