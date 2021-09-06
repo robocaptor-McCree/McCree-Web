@@ -3,8 +3,6 @@ import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 import photoAPI from "../api/photoAPI";
 
-import {Button} from 'semantic-ui-react';
-
 import App from "../App"
 
 
@@ -51,20 +49,37 @@ function Modal(props) {
 
 
 const Container = styled.div`
-    position: fixed;
-    left: 20%;
-    right: 20%;
-    top: 10%;
-    bottom: 20%;
+    position:absolute;
+    width:600px;
+    height:500px;
+    top: -50%;
+    left: -50%;
     z-index: 100;
-    background: rgba(0, 0, 0, 0.9);
-
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
 `;
+
+
+const Button = styled.button`
+    position:relative;
+    transform: translateX(-50%);
+    width:100px;
+    height:40px;
+    margin : 10px;
+    left: 5%%;
+    background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec);
+    background-size: 200%;
+    color:white;
+    font-weight: bold;
+    border:none;
+    cursor:pointer;
+    display:inline;
+`
 
 
 const H = styled.h1`
     text-align: center; 
-    color: white;
+    color: black;
 `;
 
 const QuestionImg = styled.div`
