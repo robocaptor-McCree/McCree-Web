@@ -5,11 +5,12 @@ import photoAPI from "../api/photoAPI";
 
 import {Button} from 'semantic-ui-react';
 
+import App from "../App"
+
 
 
 function Modal(props) {
     const { onClose } = props;
-
     const [questionPhoto, setQuestionPhoto ] = useState([])
 
     useEffect(() => {
@@ -20,32 +21,34 @@ function Modal(props) {
             })
     }, [])
 
-    return (
-        <Container
-            onClick={() => {
-                onClose(false);
-            }}
-            >
+        return (
+            <Container>
 
-            <div>
-                <H>아래 사진에 해당하는 정답 버튼을 눌러주세요 !</H>
-                <QuestionImg>
-                <img
-                        src={ questionPhoto }
-                        width='400'
-                        height='300'
-                        alt='' />
-                </QuestionImg>
-                <Example>
-                    <Button primary> 곰 </Button>
-                    <Button primary> 고양이 </Button>
-                    <Button primary> 강아지 </Button>
-                    <Button primary> 고래 </Button>
-                </Example>
-            </div>
-        </Container>
-    );
+                <div>
+                    <H>아래 사진에 해당하는 정답 버튼을 눌러주세요 !</H>
+                    <QuestionImg>
+                        <img
+                            src={questionPhoto}
+                            width='400'
+                            height='300'
+                            alt=''/>
+                    </QuestionImg>
+                    <Example>
+                        <Button id={1} primary
+
+                                onClick={() => {
+                                    onClose(false);
+                                }}>
+                            곰 </Button>
+                        <Button id={2} primary> 고양이 </Button>
+                        <Button id={3} primary> 강아지 </Button>
+                        <Button id={4} primary> 고래 </Button>
+                    </Example>
+                </div>
+            </Container>
+        );
 }
+
 
 const Container = styled.div`
     position: fixed;
