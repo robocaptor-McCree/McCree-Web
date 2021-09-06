@@ -1,16 +1,19 @@
 import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+
 import {Button, Container, Progress} from 'semantic-ui-react';
 
 
 import styled from "styled-components";
 import Modal from "./components/Modal";
+import LoginModal from  './components/LoginModal'
 
 function App(props) {
 
     const {} = props;
-    const [modal, handleModal] = useState(false)
+    const [modal, handleModal] = useState(false);
+    const [possible, setPossible] = useState(false);
 
 
     return (
@@ -36,11 +39,17 @@ function App(props) {
                 <Button
                     onClick={() => {
                         handleModal(true);
+                        setPossible(true);
+
                     }}
                 >
                     로그인 하기
                 </Button>
                 {modal && <Modal onClose={handleModal}/>}
+
+                {console.log(possible)}
+                {console.log(modal)}
+                {possible && !modal && <LoginModal/>}
 
             </Container>
         </LoginBody>
