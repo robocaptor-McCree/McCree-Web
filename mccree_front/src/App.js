@@ -15,44 +15,46 @@ function App(props) {
 
 
     return (
-        <Body>
-            <LoginBody>
+        <div>
+        <LoginBody>
+            <div>
+                <br/>
+                <h2>Login</h2>
                 <div>
-                    <h2>Login</h2>
-                    <div>
-                        <ID>
-                            <input className={"idForm"} type={"text"} placeholder={"ID"}/>
-                        </ID>
-                    </div>
-
-                    <br/>
-
-                    <div>
-                        <PW>
-                            <input className={"pwForm"} type={"password"} placeholder={"PW"}/>
-                        </PW>
-                    </div>
+                    <ID>
+                        <input className={"idForm"} type={"text"} placeholder={"ID"}/>
+                    </ID>
                 </div>
 
                 <br/>
 
-                <Button
-                    onClick={() => {
-                        handleModal(true);
-                        setPossible(true);
+                <div>
+                    <PW>
+                        <input className={"pwForm"} type={"password"} placeholder={"PW"}/>
+                    </PW>
+                </div>
+            </div>
 
-                    }}
-                >
-                    로그인 하기
-                </Button>
-                {modal && <Modal onClose={handleModal}/>}
+            <br/>
 
-                {console.log(possible)}
-                {console.log(modal)}
-                {possible && !modal && <LoginModal/>}
+            <Button
+                onClick={() => {
+                    handleModal(true);
+                    setPossible(true);
 
-            </LoginBody>
-        </Body>
+                }}
+            >
+                로그인 하기
+            </Button>
+            <br/>
+            {modal && <Modal onClose={handleModal}/>}
+
+            {console.log(possible)}
+            {console.log(modal)}
+            {possible && !modal && <LoginModal/>}
+
+        </LoginBody>
+        </div>
     );
 
 }
@@ -91,21 +93,16 @@ const LoginBody = styled.div`
     position:absolute;
     width:300px;
     height:400px;
-    padding: 30px, 20px;
+    margin: 50px, 40px;
     background-color:#FFFFFF;
     text-align:center;
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
     border-radius: 15px;
+    background: white;
 `;
 
-const Body = styled.div`
-    margin: 0px;
-    padding: 0px;
-    font-family:sans-serif;
-    background-color : #34495e;
-`;
 
 export default App;
 
