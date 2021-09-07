@@ -84,7 +84,7 @@ Note: The `license` badge image link at the top of this file should be updated w
    ```
    
 
-## 의존성
+## Dependencies
    * Django  
       API를 실행시키기 위한 rest framewok으로 Mccree는 django를 이용해 API를 작성하였다.
       ```
