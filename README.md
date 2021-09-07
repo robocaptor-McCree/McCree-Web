@@ -67,9 +67,8 @@ $ npm start
 ```
 http://127.0.0.1:8000/api/question/question/
 ```
-해당 페이지에서 
+해당 페이지에서 파일과 정답 정보를 입력하고 POST한다.
 ![image](https://user-images.githubusercontent.com/24893215/132341373-77a0a4bd-64b4-43aa-9988-38cfcdeb3932.png)
-파일과 정답 정보를 입력하고 POST한다.
 
 Note: The `license` badge image link at the top of this file should be updated with the correct `:user` and `:repo`.
 
