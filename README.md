@@ -20,13 +20,13 @@ This module depends upon a knowledge of [Markdown]().
 $ git clone https://github.com/robocaptor-McCree/McCree-Web
 $ cd McCree-Web/mccree_front
 $ npm install package.json
+$ python manage.py runserver 
+$ npm start
 ```
 
 ## Usage
 
-```
-$ npm start
-=======
+
   * DB설정
     API를 사용하기 위해서는 adversarial image와 image에 대한 Answer가 DB에 저장되어 있어야 사용가능하다
   
@@ -66,7 +66,6 @@ $ npm start
 새로운 이미지 추가는 다음과 같은 과정을 통해 진행한다.
 ```
 http://127.0.0.1:8000/api/question/question/
-
 ```
 해당 페이지에서 
 ![image](https://user-images.githubusercontent.com/24893215/132341373-77a0a4bd-64b4-43aa-9988-38cfcdeb3932.png)
