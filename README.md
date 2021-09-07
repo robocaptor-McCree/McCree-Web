@@ -39,7 +39,7 @@ $ npm start
           'ENGINE': 'django.db.backends.mysql', 
             'NAME': 'mccree', 
             'USER': 'root', 
-            'PASSWORD': '!zxcv9930', 
+            'PASSWORD': 'test', 
             'HOST': 'localhost', 
             'PORT': '3306', 
          } 
