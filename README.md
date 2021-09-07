@@ -3,7 +3,7 @@
 [![license](https://img.shields.io/github/license/robocaptor-McCree/McCree-Web.svg)](LICENSE)
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-McCree의 웹 API
+McCree의 Adversarial image 생성 프로그램 테스트 페이지
 
 ## Table of Contents
 
@@ -18,8 +18,15 @@ McCree의 웹 API
 This module depends upon a knowledge of [Markdown]().
 ```
 $ git clone https://github.com/robocaptor-McCree/McCree-Web
-$ cd McCree-Web
+$ cd McCree-Web/mccree_front
+$ npm install package.json
 ```
+
+## Usage
+
+```
+$ npm start
+=======
   * DB설정
     API를 사용하기 위해서는 adversarial image와 image에 대한 Answer가 DB에 저장되어 있어야 사용가능하다
   
@@ -59,6 +66,7 @@ $ cd McCree-Web
 새로운 이미지 추가는 다음과 같은 과정을 통해 진행한다.
 ```
 http://127.0.0.1:8000/api/question/question/
+
 ```
 해당 페이지에서 
 ![image](https://user-images.githubusercontent.com/24893215/132341373-77a0a4bd-64b4-43aa-9988-38cfcdeb3932.png)
@@ -67,8 +75,6 @@ http://127.0.0.1:8000/api/question/question/
 Note: The `license` badge image link at the top of this file should be updated with the correct `:user` and `:repo`.
 
 
-
-## API
 
    * 사용방법
    image와 answer를 불러오기 위한 API는 mccree_front/api/QuesitonAPI.js 내부에 정의 되어 있다.

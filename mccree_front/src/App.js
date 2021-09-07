@@ -2,12 +2,10 @@ import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import {Button, Container, Progress} from 'semantic-ui-react';
-
-
 import styled from "styled-components";
 import Modal from "./components/Modal";
-import LoginModal from  './components/LoginModal'
+import LoginModal from './components/LoginModal'
+
 
 function App(props) {
 
@@ -17,68 +15,94 @@ function App(props) {
 
 
     return (
+        <div>
         <LoginBody>
-            <Container>
+            <div>
+                <br/>
+                <h2>Login</h2>
                 <div>
-                    <h2>Login</h2>
-                    <div>
-                        <ID htmlFor='input_id'>ID : </ID>
-                        <input type='text' name='input_id'/>
-                    </div>
-
-                    <br/>
-
-                    <div>
-                        <PW htmlFor='input_pw'>PW : </PW>
-                        <input type='password' name='input_pw'/>
-                    </div>
+                    <ID>
+                        <input className={"idForm"} type={"text"} placeholder={"ID"}/>
+                    </ID>
                 </div>
 
                 <br/>
 
-                <Button
-                    onClick={() => {
-                        handleModal(true);
-                        setPossible(true);
+                <div>
+                    <PW>
+                        <input className={"pwForm"} type={"password"} placeholder={"PW"}/>
+                    </PW>
+                </div>
+            </div>
 
-                    }}
-                >
-                    로그인 하기
-                </Button>
-                {modal && <Modal onClose={handleModal}/>}
+            <br/>
 
-                {console.log(possible)}
-                {console.log(modal)}
-                {possible && !modal && <LoginModal/>}
+            <Button
+                onClick={() => {
+                    handleModal(true);
+                    setPossible(true);
 
-            </Container>
+                }}
+            >
+                로그인 하기
+            </Button>
+            <br/>
+            {modal && <Modal onClose={handleModal}/>}
+
+            {console.log(possible)}
+            {console.log(modal)}
+            {possible && !modal && <LoginModal/>}
+
         </LoginBody>
+        </div>
     );
 
 }
 
-const ID = styled.label`
-    width : 30px;
-    text-align : left;
-    display: inline-block;
+const ID = styled.div`
+    border-bottom: 2px solid #adadad;
+    margin: 30px;
+    padding: 10px 10px;
 `;
 
-
-const PW = styled.label`
-    width : 30px;
-    text-align : left;
-    display: inline-block;
+const PW = styled.div`
+    border-bottom: 2px solid #adadad;
+    margin: 30px;
+    padding: 10px 10px;
 `;
+
+const Button = styled.button`
+    position:relative;
+    left:40%;
+    transform: translateX(-50%);
+    margin-bottom: 40px;
+    width:80%;
+    height:40px;
+    background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec);
+    background-position: left;
+    background-size: 200%;
+    color:white;
+    font-weight: bold;
+    border:none;
+    cursor:pointer;
+    transition: 0.4s;
+    display:inline;
+`
 
 const LoginBody = styled.div`
-    height: 100%;
-    text-align: center;
-    margin-left: 5%;
-    margin-right: 5%; 
-    padding-top: 10%;
-    bordor: solid;
-    
-    
+    position:absolute;
+    width:300px;
+    height:400px;
+    margin: 50px, 40px;
+    background-color:#FFFFFF;
+    text-align:center;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border-radius: 15px;
+    background: white;
 `;
+
+
 export default App;
 

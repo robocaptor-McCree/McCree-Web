@@ -10,40 +10,26 @@ function LoginModal(props) {
     return (
         <Container>
             <Message>
-                로그인 성공 !
+                <p style={{marginTop: "40%"}}> 로그인 성공 ! </p>
             </Message>
         </Container>
     );
 }
 
-const Message = styled.p`
-    color: white;
-    margin-top: 20%;
+const Message = styled.h2`
+    color: black;
+`;
 
-`
 const Container = styled.div`
-    position: fixed;
-    left: 30%;
-    right: 30%;
-    top: 20%;
-    bottom: 30%;
+    position:absolute;
+    width:600px;
+    height:500px;
+    top: -50%;
+    left: -50%;
     z-index: 100;
-    background: rgba(0, 0, 0, 0.9);
-
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
 `;
 
-
-const H = styled.h1`
-    text-align: center; 
-    color: white;
-`;
-
-const QuestionImg = styled.div`
-    text-align: center;
-`;
-
-const Example = styled.div`
-    text-align: center;
-`;
 
 export default LoginModal;
