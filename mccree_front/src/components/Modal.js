@@ -3,8 +3,6 @@ import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 import photoAPI from "../api/photoAPI";
 
-import App from "../App"
-
 
 
 function Modal(props) {
@@ -26,7 +24,8 @@ function Modal(props) {
                     <H>아래 사진에 해당하는 정답 버튼을 눌러주세요 !</H>
                     <QuestionImg>
                         <img
-                            src={questionPhoto}
+                            // src={questionPhoto}
+                            src = {'001.png'}
                             width='400'
                             height='300'
                             alt=''/>
@@ -37,8 +36,8 @@ function Modal(props) {
                                 onClick={() => {
                                     onClose(false);
                                 }}>
-                            곰 </Button>
-                        <Button id={2} primary> 고양이 </Button>
+                            판다 </Button>
+                       <Button id={2} primary> 고양이 </Button>
                         <Button id={3} primary> 강아지 </Button>
                         <Button id={4} primary> 고래 </Button>
                     </Example>
