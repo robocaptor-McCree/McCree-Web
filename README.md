@@ -56,15 +56,33 @@ $ cd McCree-Web
 
 
 ## New Image Upload
-
+새로운 이미지 추가는 다음과 같은 과정을 통해 진행한다.
 ```
+http://127.0.0.1:8000/api/question/question/
 ```
+해당 페이지에서 
+![image](https://user-images.githubusercontent.com/24893215/132341373-77a0a4bd-64b4-43aa-9988-38cfcdeb3932.png)
+파일과 정답 정보를 입력하고 POST한다.
 
 Note: The `license` badge image link at the top of this file should be updated with the correct `:user` and `:repo`.
 
-### Any optional sections
+
 
 ## API
+
+   * 사용방법
+   image와 answer를 불러오기 위한 API는 mccree_front/api/QuesitonAPI.js 내부에 정의 되어 있다.
+   이 API를 사용하여 다음과 같은 코드를 페이지에 작성하면 API를 불러올 수 있다.
+   ```
+       useEffect(() => {
+        photoAPI.getQuestion(id)
+            .then(res => {
+                setQuestionPhoto(res.data.photo) //image data
+                setQuestionAnswer(res.data.photo) //answer data
+            })
+    }, [])
+   ```
+   
 
 ## 의존성
    * Django  
