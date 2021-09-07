@@ -63,7 +63,7 @@ $ npm start
       CORS_ALLOW_CREDENTIALS = True
 
 
-##Upload
+## Upload
 새로운 이미지 추가는 다음과 같은 과정을 통해 진행한다.
 ```
 http://127.0.0.1:8000/api/question/question/
