@@ -3,7 +3,7 @@
 [![license](https://img.shields.io/github/license/robocaptor-McCree/McCree-Web.svg)](LICENSE)
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-McCree의 Adversarial image 생성 프로그램 테스트 페이지
+McCree의 Web-API
 
 ## Table of Contents
 
@@ -16,7 +16,6 @@ McCree의 Adversarial image 생성 프로그램 테스트 페이지
 
 ## Install
 
-This module depends upon a knowledge of [Markdown]().
 ```
 $ git clone https://github.com/robocaptor-McCree/McCree-Web
 $ cd McCree-Web/mccree_front
