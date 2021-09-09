@@ -18,8 +18,9 @@ McCree의 Web-API
 
 ```
 $ git clone https://github.com/robocaptor-McCree/McCree-Web
-$ cd McCree-Web/mccree_front
+$ cd McCree-Web/mccree_front/src
 $ npm install package.json
+$ cd ../../mccree_back
 $ python manage.py runserver 
 $ npm start
 ```
