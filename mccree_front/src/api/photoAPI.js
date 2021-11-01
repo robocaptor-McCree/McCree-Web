@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default{
-    getphoto(id){
+    getPhoto(id){
         return axios.get(`http://127.0.0.1:8000/api/question/question/${id}/`)
     },
     getQustion(id){
