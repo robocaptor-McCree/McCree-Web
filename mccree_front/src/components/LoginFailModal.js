@@ -1,11 +1,15 @@
 import React from 'react';
 import styled from "styled-components";
 
-function LoginModal(props) {
+
+
+
+function LoginFailModal(props) {
     return (
         <Container>
             <Message>
-                <p style={{marginTop: "40%"}}> 로그인 성공 ! </p>
+                <p style={{marginTop: "40%"}}> 로그인 실패 ! </p>
+                <p> 새로고침 후 다시 시도하세요. </p>
             </Message>
         </Container>
     );
@@ -27,4 +31,4 @@ const Container = styled.div`
 `;
 
 
-export default LoginModal;
+export default LoginFailModal;

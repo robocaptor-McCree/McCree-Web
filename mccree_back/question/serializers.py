@@ -6,4 +6,5 @@ from .models import Question
 class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
-        fields = ['photo']
+        # fields = ['photo']
+        fields = '__all__'
