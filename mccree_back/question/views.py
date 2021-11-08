@@ -18,31 +18,34 @@ class QuestionViewSet(viewsets.ModelViewSet):
         #print(question.count())
         #print(question[q_id].answer)
         question_list = []
-        question_list.append(question[q_id].answer)
+        question_list.append(Question.objects.get(id=q_id).answer)
         while(len(question_list)<4):
-            index = random.randrange(1,question.count())
-            if index != q_id and (question[index].answer not in question_list):
+            index = random.randrange(0,question.count())
+            if question[index].id != q_id and (question[index].answer not in question_list):
                 question_list.append(question[index].answer)
         random.shuffle(question_list)
-        #print(question_list)
         return Response({
             'question1': question_list[0],
             'question2': question_list[1],
             'question3': question_list[2],
             'question4': question_list[3],
-        }, status=status.HTTP_200_OK)
+        }, status=200)
 
 
     @action(detail=False, methods=['GET'])
     def getAnswer(self, request, *arg, **kwargs):
-        user_answer = request.GET['id']
+
+        question_id = request.GET['id']
         user_answer = request.GET['user_answer']
-        answers = str(Question.objects.get(id=1))
-        print(str(answers))
-        print(user_answer)
-        if(user_answer == answers):
-            return Response({"정답"}, status=status.HTTP_200_OK)
+
+        print("id ", question_id)
+        print("고른 답 ", user_answer)
+
+        answers = str(Question.objects.get(id=question_id))
+        print("답 ", answers)
+        if(str(user_answer) == str(answers)):
+            return Response({"정답"}, status=200)
         else:
-            return Response({"오답"}, status=status.HTTP_401_OK)
+            return Response({"오답"}, status=401)
 
 

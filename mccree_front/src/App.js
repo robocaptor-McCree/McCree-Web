@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 
 import styled from "styled-components";
 import Modal from "./components/Modal";
 import LoginModal from './components/LoginModal'
+import photoAPI from "./api/photoAPI";
+import LoginFailModal from "./components/LoginFailModal";
+
 
 
 function App(props) {
@@ -12,7 +14,15 @@ function App(props) {
     const {} = props;
     const [modal, handleModal] = useState(false);
     const [possible, setPossible] = useState(false);
+    const [fail, setFail] = useState(false);
 
+    const [ questionPhoto, setQuestionPhoto ] = useState([])
+    const [ questionList, setQuestionList ] = useState([])
+
+    // min ~ max 사이의 random number generate
+    const getRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);
+    // const randomId = getRandom(25,31);
+    const randomId = 30;
 
     return (
         <div>
@@ -41,17 +51,30 @@ function App(props) {
                 onClick={() => {
                     handleModal(true);
                     setPossible(true);
+                    photoAPI.getPhoto(randomId).then(res => {
 
+                        console.log("요청한 사진 id :", randomId)
+                        setQuestionPhoto(res.data.photo)
+                    })
+
+                    photoAPI.getQuestion(randomId)
+                        .then(res => {
+                            console.log("요청한 보기 id", randomId)
+                            setQuestionList(res.data)
+
+                            console.log("요청한 보기 목록")
+                            console.log(res.data)
+                        })
                 }}
             >
                 로그인 하기
             </Button>
             <br/>
-            {modal && <Modal onClose={handleModal}/>}
+            {modal && <Modal photo={questionPhoto} id={randomId} list={questionList} onClose={handleModal} f={setFail}/>}
 
-            {console.log(possible)}
-            {console.log(modal)}
+            {/*{console.log(fail)}*/}
             {possible && !modal && <LoginModal/>}
+            {fail && <LoginFailModal/>}
 
         </LoginBody>
         </div>
